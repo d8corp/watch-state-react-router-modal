@@ -1,0 +1,34 @@
+{
+  "name": "@watch-state/react-router-modal",
+  "version": "1.0.0",
+  "description": "Pop-ups related to URL",
+  "main": "index.js",
+  "module": "index.es6.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d8corp/watch-state-react-router-modal.git"
+  },
+  "keywords": [
+    "modal",
+    "popup",
+    "react",
+    "watch",
+    "state",
+    "router",
+    "url",
+    "front-end"
+  ],
+  "author": "Mikhail Lysikov <d8corp@mail.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d8corp/watch-state-react-router-modal/issues"
+  },
+  "homepage": "https://github.com/d8corp/watch-state-react-router-modal",
+  "dependencies": {
+    "@watch-state/react": ">=1",
+    "react": ">=16.8",
+    "@watch-state/react-router": ">=1",
+    "@watch-state/react-modal": ">=1",
+    "tslib": ">=2"
+  }
+}

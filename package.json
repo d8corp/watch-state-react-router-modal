@@ -1,0 +1,52 @@
+{
+  "name": "@watch-state/react-router-modal",
+  "version": "1.0.0",
+  "description": "Pop-ups related to URL",
+  "main": "index.js",
+  "module": "index.es6.js",
+  "private": true,
+  "scripts": {
+    "build": "bin/release -rollup",
+    "test": "jest",
+    "patch": "bin/release -patch -rollup",
+    "minor": "bin/release -minor -rollup",
+    "major": "bin/release -major -rollup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d8corp/watch-state-react-router-modal.git"
+  },
+  "keywords": [
+    "modal",
+    "popup",
+    "react",
+    "watch",
+    "state",
+    "router",
+    "url",
+    "front-end"
+  ],
+  "author": "Mikhail Lysikov <d8corp@mail.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d8corp/watch-state-react-router-modal/issues"
+  },
+  "homepage": "https://github.com/d8corp/watch-state-react-router-modal",
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "@types/react": "^17.0.0",
+    "jest": "^26.6.3",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.33.3",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "@watch-state/react": ">=1",
+    "react": ">=16.8",
+    "@watch-state/react-router": ">=1",
+    "@watch-state/react-modal": ">=1",
+    "tslib": ">=2"
+  }
+}

@@ -1,0 +1,70 @@
+import React, {Component, FunctionComponent, LinkHTMLAttributes} from 'react'
+import watch, {createEvent} from '@watch-state/react'
+import Router, {history, setSearch} from '@watch-state/react-router'
+import Modal, {ModalProps, Modals} from '@watch-state/react-modal'
+
+export type RouterModalProps = ModalProps & {
+  id: string
+}
+
+export function closeRouterModal () {
+  history.push(setSearch(history.url, 'modal'), -1)
+}
+export function openRouterModal (id: string) {
+  history.push(setSearch(history.url, 'modal', id), -1)
+}
+
+export const OpenModal: FunctionComponent<{id: string} & LinkHTMLAttributes<any>> = props => (
+  <a {...props} onClick={e => {
+    e.preventDefault()
+    openRouterModal(props.id)
+  }} />
+)
+
+@watch
+export default class RouterModal extends Component<RouterModalProps> {
+  close: (button: string) => void
+  closeOverride (button: string, close: () => void) {
+    const start = createEvent((id?: string) => {
+      if (button !== 'router') {
+        if (id) {
+          openRouterModal(id)
+        } else {
+          closeRouterModal()
+        }
+      }
+      close()
+    })
+    if (this.props.onWillClose) {
+      this.props.onWillClose(button, start)
+    } else {
+      start()
+    }
+  }
+  render () {
+    const {id, delay, ...props} = this.props
+    return (
+      <Router
+        search={`modal=${id}`}
+        hideDelay={delay}
+        onHide={() => this.close && this.close('router')}
+        ish>
+        <Modal
+          {...props}
+          delay={delay}
+          close={close => {
+            this.close = close
+            if (this.props.close) {
+              this.props.close(close)
+            }
+          }}
+          onWillClose={(button, close) => this.closeOverride(button, close)}
+        />
+      </Router>
+    )
+  }
+}
+
+export {
+  Modals
+}
