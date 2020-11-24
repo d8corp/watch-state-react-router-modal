@@ -3,18 +3,18 @@ import watch, {createEvent} from '@watch-state/react'
 import Router, {history, setSearch} from '@watch-state/react-router'
 import Modal, {ModalProps, Modals} from '@watch-state/react-modal'
 
-export type RouterModalProps = ModalProps & {
+type RouterModalProps = ModalProps & {
   id: string
 }
 
-export function closeRouterModal () {
+function closeRouterModal () {
   history.push(setSearch(history.url, 'modal'), -1)
 }
-export function openRouterModal (id: string) {
+function openRouterModal (id: string) {
   history.push(setSearch(history.url, 'modal', id), -1)
 }
 
-export const OpenModal: FunctionComponent<{id: string} & LinkHTMLAttributes<any>> = props => (
+const OpenModal: FunctionComponent<{id: string} & LinkHTMLAttributes<any>> = props => (
   <a {...props} onClick={e => {
     e.preventDefault()
     openRouterModal(props.id)
@@ -66,5 +66,9 @@ export default class RouterModal extends Component<RouterModalProps> {
 }
 
 export {
-  Modals
+  Modals,
+  RouterModalProps,
+  OpenModal,
+  openRouterModal,
+  closeRouterModal
 }
