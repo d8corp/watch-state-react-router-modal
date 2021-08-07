@@ -1,11 +1,11 @@
 import { Component, FunctionComponent, LinkHTMLAttributes } from 'react';
 import { ModalProps, Modals } from '@watch-state/react-modal';
-export declare type RouterModalProps = ModalProps & {
+declare type RouterModalProps = ModalProps & {
     id: string;
 };
-export declare function closeRouterModal(): void;
-export declare function openRouterModal(id: string): void;
-export declare const OpenModal: FunctionComponent<{
+declare function closeRouterModal(): void;
+declare function openRouterModal(id: string): void;
+declare const OpenModal: FunctionComponent<{
     id: string;
 } & LinkHTMLAttributes<any>>;
 export default class RouterModal extends Component<RouterModalProps> {
@@ -13,4 +13,4 @@ export default class RouterModal extends Component<RouterModalProps> {
     closeOverride(button: string, close: () => void): void;
     render(): JSX.Element;
 }
-export { Modals };
+export { Modals, RouterModalProps, OpenModal, openRouterModal, closeRouterModal };

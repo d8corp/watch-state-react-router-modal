@@ -1,5 +1,6 @@
 import React, {Component, FunctionComponent, LinkHTMLAttributes} from 'react'
-import watch, {createEvent} from '@watch-state/react'
+import watch from '@watch-state/react'
+import {globalEvent} from 'watch-state'
 import Router, {history, setSearch} from '@watch-state/react-router'
 import Modal, {ModalProps, Modals} from '@watch-state/react-modal'
 
@@ -25,7 +26,8 @@ const OpenModal: FunctionComponent<{id: string} & LinkHTMLAttributes<any>> = pro
 export default class RouterModal extends Component<RouterModalProps> {
   close: (button: string) => void
   closeOverride (button: string, close: () => void) {
-    const start = createEvent((id?: string) => {
+    const start = (id?: string) => {
+      globalEvent.start()
       if (button !== 'router') {
         if (id) {
           openRouterModal(id)
@@ -34,7 +36,8 @@ export default class RouterModal extends Component<RouterModalProps> {
         }
       }
       close()
-    })
+      globalEvent.end()
+    }
     if (this.props.onWillClose) {
       this.props.onWillClose(button, start)
     } else {
