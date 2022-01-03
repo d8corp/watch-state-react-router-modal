@@ -1,6 +1,6 @@
 {
   "name": "@watch-state/react-router-modal",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Pop-ups related to URL",
   "main": "index.js",
   "module": "index.es6.js",
@@ -44,9 +44,9 @@
   },
   "dependencies": {
     "@watch-state/react": "^1.3.2",
-    "react": ">=16.8",
+    "@watch-state/react-modal": "^1.1.2",
     "@watch-state/react-router": "^1.2.3",
-    "@watch-state/react-modal": "^1.1.1",
+    "react": ">=16.8",
     "tslib": "^2.3.0"
   }
 }
